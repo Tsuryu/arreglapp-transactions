@@ -27,5 +27,9 @@ func PostTransaction(context *gin.Context) {
 		return
 	}
 
-	context.JSON(http.StatusCreated, gin.H{"message": "created", "transaction": transaction})
+	context.JSON(http.StatusCreated, transaction)
+
+	keys := make(map[string]interface{})
+	keys["transaction"] = transaction
+	context.Keys = keys
 }

@@ -9,5 +9,6 @@ type Transaction struct {
 	SecurityCode string              `bson:"security_code" json:"security_code,omitempty"`
 	Reference    string              `json:"reference"`
 	Active       bool                `json:"-"`
+	Email        string              `json:"email"`
 	Details      []TransactionDetail `json:"details,omitempty"`
 }

@@ -11,5 +11,6 @@ func Router() {
 	router.GET("/health", middlewareutils.GetMiddlewares("health")...)
 	router.POST("/transaction/:id/detail", middlewareutils.GetMiddlewares("postTransactionDetail")...)
 	router.POST("/transaction", middlewareutils.GetMiddlewares("postTransaction")...)
+	router.GET("/transaction/:id", middlewareutils.GetMiddlewares("getTransaction")...)
 	router.Run(":8080")
 }

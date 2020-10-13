@@ -11,10 +11,14 @@ var middlewarelist = map[string][]gin.HandlerFunc{
 	},
 	"postTransaction": []gin.HandlerFunc{
 		middlewares.PostTransaction,
+		middlewares.SendEmail,
 	},
 	"postTransactionDetail": []gin.HandlerFunc{
 		middlewares.PostTransactionDetail,
 		middlewares.CloseTransaction,
+	},
+	"getTransaction": []gin.HandlerFunc{
+		middlewares.GetTransaction,
 	},
 }
 
