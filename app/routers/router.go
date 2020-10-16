@@ -1,6 +1,8 @@
 package routers
 
 import (
+	"os"
+
 	middlewareutils "github.com/Tsuryu/arreglapp-transactions/app/middlewares/utils"
 	"github.com/gin-gonic/gin"
 )
@@ -12,5 +14,5 @@ func Router() {
 	router.POST("/transaction/:id/detail", middlewareutils.GetMiddlewares("postTransactionDetail")...)
 	router.POST("/transaction", middlewareutils.GetMiddlewares("postTransaction")...)
 	router.GET("/transaction/:id", middlewareutils.GetMiddlewares("getTransaction")...)
-	router.Run(":8080")
+	router.Run(":" + os.Getenv("APP_PORT"))
 }
