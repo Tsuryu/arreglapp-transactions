@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/Tsuryu/arreglapp-transactions/app/models"
+	"github.com/Tsuryu/arreglapp-commons/app/models"
 	"go.mongodb.org/mongo-driver/bson"
 )
 

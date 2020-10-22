@@ -1,6 +1,6 @@
 package details
 
-import "github.com/Tsuryu/arreglapp-transactions/app/db"
+import "github.com/Tsuryu/arreglapp-commons/app/db"
 
 var database = db.Connection.Database("arreglapp")
 

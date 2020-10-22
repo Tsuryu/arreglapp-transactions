@@ -5,8 +5,8 @@ import (
 	"math/rand"
 	"net/http"
 
+	"github.com/Tsuryu/arreglapp-commons/app/models"
 	"github.com/Tsuryu/arreglapp-transactions/app/db/transactions"
-	"github.com/Tsuryu/arreglapp-transactions/app/models"
 	"github.com/gin-gonic/gin"
 	"github.com/gin-gonic/gin/binding"
 )
