@@ -7,19 +7,22 @@ import (
 )
 
 var middlewarelist = map[string][]gin.HandlerFunc{
-	"health": []gin.HandlerFunc{
+	"health": {
 		commonMiddlewares.Healthcheck,
 	},
-	"postTransaction": []gin.HandlerFunc{
+	"postTransaction": {
 		middlewares.PostTransaction,
 		middlewares.SendEmail,
 	},
-	"postTransactionDetail": []gin.HandlerFunc{
+	"postTransactionDetail": {
 		middlewares.PostTransactionDetail,
 		middlewares.CloseTransaction,
 	},
-	"getTransaction": []gin.HandlerFunc{
+	"getTransaction": {
 		middlewares.GetTransaction,
+	},
+	"getTransactions": {
+		middlewares.GetTransactions,
 	},
 }
 
