@@ -19,7 +19,6 @@ func FindByUsername(username string) ([]models.Transaction, error) {
 	condition := bson.M{"username": username}
 
 	var results []models.Transaction
-	var result models.Transaction
 	// var metadata = make(map[string]interface{})
 
 	cur, err := Collection.Find(ctx, condition)
@@ -28,6 +27,7 @@ func FindByUsername(username string) ([]models.Transaction, error) {
 	}
 	defer cur.Close(ctx)
 	for cur.Next(ctx) {
+		var result models.Transaction
 		err := cur.Decode(&result)
 		if err != nil {
 			fmt.Println(err)
