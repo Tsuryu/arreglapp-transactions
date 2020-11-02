@@ -9,6 +9,7 @@ import (
 
 // Router : app routes
 func Router() {
+
 	router := gin.Default()
 	router.GET("/health", middlewareutils.GetMiddlewares("health")...)
 	router.POST("/transaction/:id/detail", middlewareutils.GetMiddlewares("postTransactionDetail")...)
