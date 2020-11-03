@@ -11,15 +11,12 @@ import (
 	"go.mongodb.org/mongo-driver/bson"
 )
 
-// FindByUsername : get user transactions
-func FindByUsername(username string) ([]models.Transaction, error) {
+// CommonFindBy : get user transactions
+func CommonFindBy(condition bson.M) ([]models.Transaction, error) {
 	ctx, cancel := context.WithTimeout(context.Background(), 15*time.Second)
 	defer cancel()
 
-	condition := bson.M{"username": username}
-
 	var results []models.Transaction
-	// var metadata = make(map[string]interface{})
 
 	cur, err := Collection.Find(ctx, condition)
 	if err != nil {
