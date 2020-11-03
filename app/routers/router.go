@@ -1,6 +1,9 @@
 package routers
 
 import (
+	"os"
+	"strconv"
+
 	middlewareutils "github.com/Tsuryu/arreglapp-transactions/app/middlewares/utils"
 	"github.com/gin-gonic/gin"
 )
@@ -14,10 +17,10 @@ func Router() {
 	router.GET("/transaction", middlewareutils.GetMiddlewares("getTransactions")...)
 	router.GET("/transaction/:id", middlewareutils.GetMiddlewares("getTransaction")...)
 
-	// port, err := strconv.Atoi(os.Getenv("APP_PORT"))
-	// if err != nil {
-	// 	fmt.Println("Eror loading port from env: " + os.Getenv("APP_PORT"))
-	// 	port = 8080
-	// }
-	router.Run()
+	port, err := strconv.Atoi(os.Getenv("APP_PORT"))
+	if err == nil {
+		router.Run(":" + strconv.Itoa(port))
+	} else {
+		router.Run()
+	}
 }
