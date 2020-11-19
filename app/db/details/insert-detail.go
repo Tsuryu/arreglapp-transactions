@@ -30,12 +30,15 @@ func Insert(traceID string, securityCode string, detail *models.TransactionDetai
 		"trace_id": bson.M{
 			"$eq": traceID,
 		},
-		"security_code": bson.M{
-			"$eq": securityCode,
-		},
 		"active": bson.M{
 			"$eq": true,
 		},
+	}
+
+	if securityCode != "" {
+		filter["security_code"] = bson.M{
+			"$eq": securityCode,
+		}
 	}
 
 	result, err := Collection.UpdateOne(ctx, filter, updateString)
