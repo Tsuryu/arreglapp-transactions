@@ -31,7 +31,9 @@ func CommonFindBy(condition bson.M) ([]models.Transaction, error) {
 		}
 		result.SecurityCode = ""
 		for index, detail := range result.Details {
-			result.Details[index].Metadata = utils.GetObjectFromPrimitiveD(detail.Metadata)
+			if result.Details[index].Metadata != nil {
+				result.Details[index].Metadata = utils.GetObjectFromPrimitiveD(detail.Metadata)
+			}
 		}
 		results = append(results, result)
 	}

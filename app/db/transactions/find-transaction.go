@@ -24,7 +24,9 @@ func FindBy(id string) (models.Transaction, error) {
 	}
 
 	for index, detail := range result.Details {
-		result.Details[index].Metadata = utils.GetObjectFromPrimitiveD(detail.Metadata)
+		if detail.Metadata != nil {
+			result.Details[index].Metadata = utils.GetObjectFromPrimitiveD(detail.Metadata)
+		}
 	}
 
 	return result, nil
